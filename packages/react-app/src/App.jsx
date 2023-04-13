@@ -68,8 +68,8 @@ const scaffoldEthProvider = navigator.onLine
   : null;
 const poktMainnetProvider = navigator.onLine
   ? new ethers.providers.StaticJsonRpcProvider(
-      "https://eth-mainnet.gateway.pokt.network/v1/lb/611156b4a585a20035148406",
-    )
+    "https://eth-mainnet.gateway.pokt.network/v1/lb/611156b4a585a20035148406",
+  )
   : null;
 const mainnetInfura = navigator.onLine
   ? new ethers.providers.StaticJsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID)
@@ -168,8 +168,8 @@ function App(props) {
     poktMainnetProvider && poktMainnetProvider._isProvider
       ? poktMainnetProvider
       : scaffoldEthProvider && scaffoldEthProvider._network
-      ? scaffoldEthProvider
-      : mainnetInfura;
+        ? scaffoldEthProvider
+        : mainnetInfura;
 
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
@@ -577,7 +577,7 @@ function App(props) {
                 renderItem={item => {
                   return (
                     <List.Item key={item.blockNumber}>
-                      <Address value={item.args[0]} ensProvider={mainnetProvider} fontSize={16} /> =>
+                      <Address value={item.args[0]} ensProvider={mainnetProvider} fontSize={16} />
                       <Balance balance={item.args[1]} />
                     </List.Item>
                   );
